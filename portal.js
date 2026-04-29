@@ -96,15 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const qrContainer = document.getElementById("qrcode-container");
         qrContainer.innerHTML = ""; // Clear previous
         
-        // Create URL for scanning (points to scan.html?id=xxx)
-        let currentPath = window.location.pathname;
-        if (currentPath.endsWith('.html')) {
-            currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
-        }
-        if (currentPath.endsWith('/')) {
-            currentPath = currentPath.substring(0, currentPath.length - 1);
-        }
-        const scanUrl = `${window.location.origin}${currentPath}/scan.html?id=${currentUser.id}`;
+        // Create URL for scanning (points to the live GitHub Pages site)
+        // This ensures the QR code is scannable by any phone camera/browser
+        const scanUrl = `https://suhaniarora236.github.io/car-qr/scan.html?id=${currentUser.id}`;
+
 
         new QRCode(qrContainer, {
             text: scanUrl,
@@ -147,8 +142,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Stop scanning
         if(html5QrcodeScanner) {
             html5QrcodeScanner.clear().then(() => {
-                // If it's a valid URL, redirect
-                if(decodedText.includes('scan.html?id=')) {
+                // If it's a valid CarBuddy URL, redirect
+                if(decodedText.includes('suhaniarora236.github.io/car-qr/scan.html?id=')) {
+                    // Extract ID and redirect locally so testing stays in your local environment
+                    const urlParams = new URLSearchParams(decodedText.split('?')[1]);
+                    const id = urlParams.get('id');
+                    window.location.href = `scan.html?id=${id}`;
+                } else if (decodedText.includes('scan.html?id=')) {
+                    // Fallback for older local QR codes
                     window.location.href = decodedText;
                 } else {
                     alert("Scanned QR Code is not a valid CarBuddy QR: " + decodedText);
