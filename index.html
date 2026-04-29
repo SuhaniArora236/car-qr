@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarBuddy QR - Portal</title>
+    <link rel="stylesheet" href="portal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- QR Code Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- QR Code Scanner -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
+    <div class="prototype-badge">PROTOTYPE</div>
+
+    <div class="container">
+        <header class="main-header">
+            <div class="logos">
+                <img src="logo1.png" alt="App Logo" class="logo">
+                <img src="logo2.png" alt="Zurich Kotak Logo" class="logo">
+            </div>
+            <h1>User Portal</h1>
+        </header>
+
+        <!-- Login Section -->
+        <section id="login-section" class="card">
+            <h2>Login</h2>
+            <div id="login-error" class="hidden error-text">Invalid username or password</div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="e.g., user1" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter PIN (1234)" required>
+                </div>
+                <button type="submit" class="btn btn-blue">Login</button>
+            </form>
+            
+            <div class="scan-action mt-4">
+                <h3>Or scan a vehicle QR code directly</h3>
+                <button id="start-scan-btn" class="btn btn-outline-blue">Scan QR Code</button>
+                <div id="reader" width="600px" class="hidden mt-2"></div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="hidden">
+            <div class="welcome-header">
+                <h2 id="welcome-message"></h2>
+                <button id="logout-btn" class="btn btn-small btn-outline-red">Logout</button>
+            </div>
+
+            <div class="card">
+                <h3>Vehicle & Medical Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Vehicle No:</span>
+                        <span id="dash-vehicle" class="value"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Policy No:</span>
+                        <span id="dash-policy" class="value"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Blood Group:</span>
+                        <span id="dash-blood" class="value text-red"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Medical:</span>
+                        <span id="dash-medical" class="value"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>My Documents</h3>
+                <div class="doc-container">
+                    <div class="doc-item">
+                        <p class="label mb-1">Profile Image</p>
+                        <img id="user-image" src="" alt="User Profile" class="profile-img">
+                    </div>
+                    <div class="doc-item">
+                        <p class="label mb-1">Policy Document</p>
+                        <a id="user-policy-link" href="#" target="_blank" class="btn btn-outline-blue">View Policy PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <h3>My Emergency QR Code</h3>
+                <p class="mb-2">Print this and stick it on your vehicle.</p>
+                <div id="qrcode-container" class="qr-box"></div>
+                <button id="download-qr-btn" class="btn btn-green mt-2">Download QR Code</button>
+            </div>
+            
+            <div class="card">
+                <h3>Emergency Scanner</h3>
+                <p class="mb-2">Scan another vehicle's QR code.</p>
+                <button id="dash-scan-btn" class="btn btn-outline-blue">Scan QR Code</button>
+                <div id="dash-reader" width="600px" class="hidden mt-2"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="portal.js"></script>
+</body>
+</html>

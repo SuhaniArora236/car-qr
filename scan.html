@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarBuddy QR - Emergency System</title>
+    <meta name="description" content="CarBuddy QR Emergency Vehicle Information System">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="prototype-badge">PROTOTYPE</div>
+
+    <div id="error-container" class="hidden">
+        <h1>Vehicle not found</h1>
+        <p>The scanned QR code is invalid or the vehicle is not registered in our system.</p>
+    </div>
+
+    <div id="main-container" class="container hidden">
+        <header class="header">
+            <div class="logos">
+                <img src="logo1.png" alt="App Logo" class="logo">
+                <img src="logo2.png" alt="Zurich Kotak Logo" class="logo">
+            </div>
+            <h2>CarBuddy QR</h2>
+            <p class="emergency-text">EMERGENCY ALERT</p>
+        </header>
+
+        <div class="card info-card">
+            <h1 id="vehicle-number" class="highlight-text"></h1>
+            
+            <div class="medical-alert">
+                <div class="blood-group-badge">
+                    <span class="label">Blood Group</span>
+                    <span id="blood-group" class="value blood-value"></span>
+                </div>
+                <div class="medical-condition">
+                    <span class="label">Medical Condition:</span>
+                    <span id="medical-info" class="value text-red"></span>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Owner Name:</span>
+                <span id="owner-name" class="value"></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Policy Number:</span>
+                <span id="policy-number" class="value"></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Emergency Contact:</span>
+                <span id="emergency-contact-display" class="value"></span>
+            </div>
+        </div>
+
+        <p class="instruction-text">If this vehicle is in an emergency, use the options below</p>
+
+        <div class="card location-card">
+            <button id="get-location-btn" class="btn btn-blue">Get My Location</button>
+            <div id="location-display" class="hidden">
+                <p id="coordinates"></p>
+                <button id="copy-location-btn" class="btn btn-small btn-outline">Copy Location</button>
+            </div>
+        </div>
+
+        <div class="actions-grid">
+            <a id="btn-call-owner" href="#" class="btn btn-green">Call Owner</a>
+            <a id="btn-call-emergency" href="#" class="btn btn-green">Call Emergency Contact</a>
+            <a id="btn-call-ambulance" href="tel:108" class="btn btn-red">Call Ambulance (108)</a>
+            <a id="btn-call-police" href="tel:100" class="btn btn-red">Call Police (100)</a>
+            <a id="btn-sms" href="#" class="btn btn-blue">Send SMS Alert</a>
+            <a id="btn-whatsapp" href="#" class="btn btn-green" target="_blank">Send WhatsApp Alert</a>
+        </div>
+
+        <div class="card support-card">
+            <h3 class="support-title">Insurance & Roadside Assistance</h3>
+            <div class="actions-grid support-grid">
+                <a href="https://www.zurichkotak.com/network-locator/cashless-garages" class="btn btn-outline" target="_blank">Zurich Kotak Garage Locator</a>
+                <a href="https://www.zurichkotak.com/journey/index.html#/motor-claim/motor-claim-registration" class="btn btn-outline" target="_blank">Register Motor Claim</a>
+                <a href="https://www.justdial.com/Delhi/Crane-Service-Providers/nct-10146337" class="btn btn-outline" target="_blank">Find Crane Services</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+:root {
+    --primary-red: #e53935;
+    --primary-green: #43a047;
+    --primary-blue: #1e88e5;
+    --text-main: #333333;
+    --bg-main: #f5f7fa;
+    --card-bg: #ffffff;
+    --border-color: #ddd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 1rem;
+    padding-top: 4rem;
+}
+
+.prototype-badge {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff9800;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 3px;
+    padding: 0.5rem;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    max-height: 60px;
+    max-width: 150px;
+    object-fit: contain;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card h2, .card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+    border-bottom: 2px solid var(--bg-main);
+    padding-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    color: white;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    width: auto;
+}
+
+.btn-blue { background-color: var(--primary-blue); }
+.btn-green { background-color: var(--primary-green); }
+
+.btn-outline-blue {
+    background-color: transparent;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.btn-outline-red {
+    background-color: transparent;
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+}
+
+.error-text {
+    color: var(--primary-red);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    background: #ffebee;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+.mt-2 { margin-top: 1rem; }
+.mt-4 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.text-center { text-align: center; }
+.text-red { color: var(--primary-red); }
+
+.welcome-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.value {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.doc-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: end;
+}
+
+.profile-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+}
+
+.qr-box {
+    display: flex;
+    justify-content: center;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px dashed var(--border-color);
+    margin-bottom: 1rem;
+}
+
+#reader, #dash-reader {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
